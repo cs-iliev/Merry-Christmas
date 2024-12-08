@@ -341,54 +341,136 @@
 	</script>	
 
 	<!-- Add this CSS block for centering the canvas -->
-	<style>
-		body {
+    <style>
+        /* General Reset and Body */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%; 
+        }
+
+        body {
             display: flex;
             align-items: center;
             flex-direction: column;
-            height: 100%;
-            margin: 0;
+            min-height: 100vh; /* Ensure the body is at least the height of the screen */
             background-image: url("retro-tropical-summer-gradient-background_85212-1499.jpg");
-			background-repeat: no-repeat;
-			background-size: 100%;
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensure the background image covers the entire viewport */
+            background-attachment: fixed; /* Keeps the background fixed during scroll */
         }
 
         .content {
             text-align: center;
+            width: 100%; 
+            max-width: 1200px; 
         }
 
         h2 {
             margin: 20px 0;
         }
 
-		.imgBck {
-			display: flex;
-			max-width: fit-content;
-			margin-left: auto;
-			margin-right: auto;
-			width: 800px;
-			height: 600px;
+        .imgBck {
+            display: flex;
+            width: 90%; 
+            max-width: 800px; 
+            height: auto; 
             justify-content: center;
-			align-items: center;
-			background-image: url("Lovepik_com-380316740-summer-paper-cut-tropical-leaves-long-square-border-cool-leaf-frame.png");
-			background-position: 10px;
-			background-size: 100% auto;
-		}
-		
-		.txtBck {
-			max-width: 70%;
-			margin-left: auto;
-			margin-right: auto;
-		}
+            align-items: center;
+            background-image: url("Lovepik_com-380316740-summer-paper-cut-tropical-leaves-long-square-border-cool-leaf-frame.png");
+            background-position: center;
+            background-size: 100% auto;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .txtBck {
+            max-width: 90%; 
+            text-align: center;
+        }
 
         .canvas-container {
             display: flex;
             justify-content: center;
             align-items: center;
-			width: 50vw;  /* 80% of the viewport width */
-			height: 10vh; /* 60% of the viewport height */
+            width: 90%; 
+            max-width: 800px; 
+            margin: 20px auto; /* Ensures horizontal centering */
         }
-	</style>
+
+        .canvas-container canvas {
+            width: 100%;  /* Make canvas take up the full width of its container */
+            height: auto; /* Keep aspect ratio */
+            display: block; 
+        }
+
+        /* Media Queries for Phones */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .imgBck {
+                width: 100%; 
+                padding: 10px; 
+            }
+
+            .txtBck {
+                max-width: 100%; 
+                font-size: 1rem; 
+            }
+
+            .canvas-container {
+                width: 100%; 
+                justify-content: center; /* Center horizontally */
+            }
+
+            .canvas-container canvas {
+                width: 90%; 
+                height: auto; 
+            }
+        }
+
+        /* Media Queries for Tablets */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            .imgBck {
+                width: 90%; 
+                padding: 15px; 
+            }
+
+            .txtBck {
+                max-width: 90%; 
+            }
+
+            .canvas-container {
+                width: 90%; 
+            }
+        }
+
+        /* Media Queries for Desktop */
+        @media (min-width: 1024px) {
+            .content {
+                max-width: 1200px; 
+            }
+
+            .imgBck {
+                width: 800px; 
+            }
+
+            .canvas-container {
+                width: 800px; 
+            }
+        }
+    </style>
 
 </head>
 
